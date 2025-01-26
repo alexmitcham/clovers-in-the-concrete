@@ -11,6 +11,7 @@
       --background-gradient-end: #34a0a4;
       --grid-bg: #ffffff;
       --grid-hover-bg: #b7e4c7;
+      --grid-click-bg: #52b69a;
       --text-color: #023e8a;
       --header-color: #023e8a;
       --footer-color: #90e0ef;
@@ -32,18 +33,18 @@
 
     header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     header img {
-      width: 140px;
+      width: 120px;
       height: auto;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin: 15px 0;
+      font-size: 2.2rem;
+      margin: 10px 0;
       font-weight: 700;
       color: var(--header-color);
       text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
@@ -52,7 +53,7 @@
     #bingo-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
+      gap: 10px;
       margin-top: 20px;
       width: 100%;
       max-width: 400px;
@@ -63,15 +64,15 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 600;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       transition: all 0.3s ease;
-      width: 90px;
-      height: 90px;
+      width: calc(25% - 10px);
+      aspect-ratio: 1 / 1; /* Ensures perfect squares */
     }
 
     .grid-item:hover {
@@ -79,8 +80,13 @@
       transform: scale(1.05);
     }
 
+    .grid-item.clicked {
+      background: var(--grid-click-bg);
+      color: #ffffff;
+    }
+
     footer {
-      margin-top: auto;
+      margin-top: 20px;
       font-size: 1rem;
       color: var(--footer-color);
       font-style: italic;
@@ -103,27 +109,32 @@
   </header>
 
   <div id="bingo-grid">
-    <div class="grid-item">Yellow Taxi</div>
-    <div class="grid-item">Brooklyn Bridge</div>
-    <div class="grid-item">Central Park</div>
-    <div class="grid-item">Empire State</div>
-    <div class="grid-item">Statue of Liberty</div>
-    <div class="grid-item">Street Performer</div>
-    <div class="grid-item">Times Square</div>
-    <div class="grid-item">Subway Graffiti</div>
-    <div class="grid-item">Bagel Shop</div>
-    <div class="grid-item">NYC Pigeon</div>
-    <div class="grid-item">Hot Dog Stand</div>
-    <div class="grid-item">Broadway Sign</div>
-    <div class="grid-item">Fire Escape</div>
-    <div class="grid-item">Flatiron Building</div>
-    <div class="grid-item">Chrysler Building</div>
-    <div class="grid-item">Grand Central</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Yellow Taxi</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Brooklyn Bridge</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Central Park</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Empire State</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Statue of Liberty</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Street Performer</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Times Square</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Subway Graffiti</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Bagel Shop</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">NYC Pigeon</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Hot Dog Stand</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Broadway Sign</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Fire Escape</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Flatiron Building</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Chrysler Building</div>
+    <div class="grid-item" onclick="toggleHighlight(this)">Grand Central</div>
   </div>
 
   <footer>
     <p>Built for NYC explorers with love ❤️</p>
   </footer>
+
+  <script>
+    function toggleHighlight(element) {
+      element.classList.toggle('clicked');
+    }
+  </script>
 </body>
 </html>
-
