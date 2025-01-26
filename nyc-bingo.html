@@ -71,8 +71,8 @@
       align-items: center;
       cursor: pointer;
       transition: all 0.3s ease;
-      width: calc(25% - 10px);
-      aspect-ratio: 1 / 1; /* Ensures perfect squares */
+      width: min(90px, 22%);
+      height: min(90px, 22%);
     }
 
     .grid-item:hover {
@@ -86,7 +86,7 @@
     }
 
     footer {
-      margin-top: 20px;
+      margin-top: 30px;
       font-size: 1rem;
       color: var(--footer-color);
       font-style: italic;
